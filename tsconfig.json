@@ -3,6 +3,9 @@
   "files": [],
   "references": [
     {
+      "path": "./packages/frontend/tsconfig.json"
+    },
+    {
       "path": "./packages/gcp-backend/tsconfig.build.json"
     }
   ]

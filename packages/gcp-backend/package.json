@@ -12,8 +12,8 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "deploy": "sh ./deploy.sh",
     "clean": "rimraf dist *.tsbuildinfo",
+    "deploy": "sh ./deploy.sh",
     "format-check": "prettier --check . ../../.prettierignore",
     "format-fix": "prettier --write . ../../.prettierignore",
     "lint-fix": "pnpm linter-base-config --fix",
