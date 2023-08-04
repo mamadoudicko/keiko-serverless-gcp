@@ -1,2 +1,6 @@
-export * from './hello';
-export * from './hello2';
+export * from './getNft';
+
+
+export const functions = [
+    
+]
