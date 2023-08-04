@@ -1,19 +1,14 @@
-# Swarmion example
+# Keiko Serverless
+### This is the GCP version of https://github.com/theodo/keiko-serverless
 
-This template is an example of a project generated with [Swarmion](https://github.com/swarmion/swarmion).
 
-## Documentation
+Hey there! ✨ 🚀 Welcome to Kumo's Serverless tutorial :). 
+Here, you'll learn how to get started with Serverless technologies.
 
-Find the Swarmion documentation on [swarmion.dev](https://www.swarmion.dev)
+Useful information:
 
-## Commands
+- Template used to build the project: [Swarmion](https://www.swarmion.dev/ )
 
-These commands have to be run at the root of the project.
+- Frontend technology: React
 
-- `nvm use`: set the version of node set in `.nvmrc`
-- `pnpm install`: install node dependencies in all packages;
-- `pnpm package`: compile the common packages;
-- `pnpm test`: launch the tests in all packages;
-- `pnpm run deploy`: deploy all the end services in order;
-- `pnpm generate-service myService`: create a simple service in the repository's structure respecting our guidelines
-- `pnpm generate-library myLibrary`: create a simple internal library in the repository's structure respecting our guidelines
+- Backend cloud provider: GCP
