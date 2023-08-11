@@ -1,0 +1,18 @@
+resources:
+  - name: keikodb
+    type: gcp-types/bigtableadmin-v2:projects.instances
+    properties:
+      parent: projects/keiko-gcp
+      instanceId: nft-db
+      instance:
+        display_name: nft-db
+      clusters:
+        nft-cluster:
+          location: projects/keiko-gcp/locations/us-central1
+          serveNodes: 1
+
+  - name: nft-table
+    type: gcp-types/bigtableadmin-v2:projects.instances.tables
+    properties:
+      parent: $(ref.keikodb.name)
+      tableId: nft-table

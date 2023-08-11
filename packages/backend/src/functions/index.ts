@@ -1,6 +1,4 @@
 export * from './getNft';
+export * from './insertNft';
 
-
-export const functions = [
-    
-]
+export const functions = [];

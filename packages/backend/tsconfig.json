@@ -1,7 +1,10 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "target": "ES2020",
+    "module": "CommonJS",
+    "strict": true
   },
   "include": ["./**/*.ts"],
   "exclude": ["./dist"]

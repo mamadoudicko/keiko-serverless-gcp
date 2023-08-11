@@ -30,15 +30,21 @@ fi
 # Execute pnpm package
 pnpm package
 
-# Create a Bash script to generate package.json
+jq '.dependencies' package.json >temp_dependencies.json
+
+# Create the dist/package.json file with the required fields and merge in the dependencies
 cat <<EOF >dist/package.json
 {
   "name": "project",
   "private": true,
   "version": "1.0.0",
-  "main": "index.cjs"
+  "main": "index.cjs",
+  "dependencies": $(cat temp_dependencies.json)
 }
 EOF
+
+# Clean up the temporary file
+rm temp_dependencies.json
 
 # Deploy the function using Google Cloud Functions CLI
 gcloud functions deploy "$FUNCTION_NAME" --runtime "$RUNTIME" --trigger-"$TRIGGER_TYPE" --allow-unauthenticated --source ./dist
