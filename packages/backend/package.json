@@ -12,6 +12,7 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
+    "start": "pnpm node dist/index.js",
     "clean": "rimraf dist *.tsbuildinfo",
     "deploy": "sh ./deploy.sh",
     "format-check": "prettier --check . ../../.prettierignore",

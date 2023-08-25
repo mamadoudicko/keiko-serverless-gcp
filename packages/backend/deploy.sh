@@ -51,3 +51,8 @@ gcloud functions deploy "$FUNCTION_NAME" --runtime "$RUNTIME" --trigger-"$TRIGGE
 
 #deploy from cli:
 # pnpm run deploy --function-name hello2 --runtime nodejs16 --trigger-type http
+
+# Testing docker locally for cloud run
+# docker build -t keiko-gcp:tag .
+
+# docker run -p 3000:3000 keiko-gcp:tag
