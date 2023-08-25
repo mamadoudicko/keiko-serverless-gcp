@@ -6,7 +6,7 @@
       "path": "./packages/frontend/tsconfig.json"
     },
     {
-      "path": "./packages/gcp-backend/tsconfig.build.json"
+      "path": "./packages/backend/tsconfig.json"
     }
   ]
 }
