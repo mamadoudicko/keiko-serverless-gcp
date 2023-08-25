@@ -1,0 +1,39 @@
+import { Bigtable } from '@google-cloud/bigtable';
+import { Request, Response } from 'express';
+
+import { instanceId, nftRowPrefix, tableId } from 'db/config';
+import { NftData } from 'types';
+import { NftRowData, transformNftData } from 'utils/transformNftData';
+
+const bigtable = new Bigtable();
+
+
+export const getAllNft = (_: Request, res: Response): void => {
+  try {
+    const instance = bigtable.instance(instanceId);
+    const table = instance.table(tableId);
+
+    const stream = table.createReadStream({ prefix: nftRowPrefix });
+
+    const nftDataArray: NftData[] = [];
+
+    stream
+      .on('error', (err: Error) => {
+        console.log('Error streaming data from Bigtable:', err);
+        res.status(500).send('Internal Server Error');
+      })
+      .on('data', (row:{data : NftRowData}) => {
+        // Handle each row of data here
+        const nftData: NftRowData = row.data ;
+        nftDataArray.push(transformNftData(nftData));
+      })
+      .on('end', () => {
+        console.log('All rows retrieved.');
+        res.send(nftDataArray); 
+      });
+
+  } catch (error) {
+    console.error('Error fetching data from Bigtable:', error);
+    res.status(500).send('Internal Server Error');
+  }
+};
