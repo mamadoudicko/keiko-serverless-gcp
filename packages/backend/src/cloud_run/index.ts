@@ -7,6 +7,7 @@ const app: Express = express();
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.get('/getAllNft', async (_: Request, res: Response) => {
+  console.log('getAllNft BABA');
   try {
     const nftDataArray = await getAllNft();
     res.send(nftDataArray);
